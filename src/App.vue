@@ -45,11 +45,11 @@ export default {
 }
 
 .fade-enter-active {
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 }
 
 .fade-leave-to {
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
   opacity: 0;
 }
 </style>

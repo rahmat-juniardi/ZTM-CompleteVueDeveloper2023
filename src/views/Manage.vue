@@ -51,6 +51,7 @@ export default {
   },
   async created() {
     const snapshot = await songsCollection.where('uid', '==', auth.currentUser.uid).get()
+    console.log(auth.currentUser.uid)
 
     snapshot.forEach(this.addSong)
   },
