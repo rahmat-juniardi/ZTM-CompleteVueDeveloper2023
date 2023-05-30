@@ -7,9 +7,18 @@ import VeeValidatePlugin from './includes/validation'
 import { auth } from './includes/firebase'
 import Icon from './directives/icon'
 import i18n from './includes/i18n'
+import { registerSW } from 'virtual:pwa-register'
 
 import './assets/base.css'
 import './assets/main.css'
+
+// registerSW({ immediate: true })
+
+const updateSW = registerSW({
+  onNeedRefresh() {},
+  onOfflineReady() {},
+  immediate: true
+})
 
 let app
 
@@ -21,6 +30,7 @@ auth.onAuthStateChanged(() => {
     app.use(router)
     app.use(VeeValidatePlugin)
     app.use(i18n)
+    app.use(updateSW)
     app.directive('icon', Icon)
 
     app.mount('#app')

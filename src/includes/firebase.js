@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: 'music-vuejs-f64ad',
   storageBucket: 'music-vuejs-f64ad.appspot.com',
   messagingSenderId: '55531334677',
-  appId: '1:55531334677:web:c088b0244681bb79adf21c'
+  appId: '1:55531334677:web:c088b0244681bb79adf21xc'
 }
 
 // Initialize Firebase
@@ -18,6 +18,11 @@ firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
 const db = firebase.firestore()
 const storage = firebase.storage()
+
+// Persistence Firebase
+db.enablePersistence().catch((error) => {
+  console.log(`Firebase persistence error ${error.code}`)
+})
 
 const usersCollection = db.collection('users')
 const songsCollection = db.collection('songs')
